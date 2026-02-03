@@ -85,10 +85,21 @@
       box-sizing: border-box;
       text-align: center;
       background: #fffaf6;
-      overflow-y: auto;  
-    }
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
     }
 
+    .content-top {
+    }
+
+    .hint {
+      font-size: 12px;
+      color: #aaa;
+    }
+    
     .cake {
       font-size: 48px;
       animation: float 2s ease-in-out infinite;
@@ -143,18 +154,20 @@
 
     <!-- 内页 -->
     <div class="side back">
-      <div class="cake">🎂</div>
-      <img src="luisa.jpg" class="photo" alt="memory">
-
-      <div class="text-card">
-        <p>
-          祝卢卢，生日快乐 🎉<br>
-          新的一年<br>
-          大鹏展翅，自由自在 🌈
-        </p>
+      <div class="contebt-top">
+        <div class="cake">🎂</div>
+        <img src="luisa.jpg" class="photo" alt="memory">
+        <div class="text-card">
+          <p>
+            祝卢卢，生日快乐 🎉<br>
+            新的一年<br>
+            大鹏展翅，自由自在 🌈
+          </p>
+        </div>
       </div>
 
       <div class="hint">游向更广阔的世界</div>
+      
     </div>
 
   </div>
