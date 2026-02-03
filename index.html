@@ -90,16 +90,19 @@
       flex-direction: column;
       justify-content: space-between;
       height: 100%;
-    }
+    }  
 
     .content-top {
+      /* 可以根据需要添加间距或居中 */
     }
 
     .hint {
       font-size: 12px;
       color: #aaa;
+      margin-top: 10px; /* 保证和上方内容有间距 */
+      position: static; /* 绝对定位去掉 */
     }
-    
+
     .cake {
       font-size: 48px;
       animation: float 2s ease-in-out infinite;
@@ -151,7 +154,7 @@
       <img src="swim.jpg" alt="swimming">
       <p>click to open ✨</p>
     </div>
-
+    
     <!-- 内页 -->
     <div class="side back">
       <div class="contebt-top">
