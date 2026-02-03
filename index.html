@@ -43,6 +43,7 @@
       overflow: hidden;
       background: white;
     }
+
     .text-card {
       margin-top: 15px;
       padding: 14px 18px;
@@ -88,19 +89,19 @@
 
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: space-between; /* 上下分开 */
       height: 100%;
-    }  
+    }
 
     .content-top {
-      /* 可以根据需要添加间距或居中 */
+      /* 上半部分内容 */
     }
 
     .hint {
       font-size: 12px;
       color: #aaa;
-      margin-top: 10px; /* 保证和上方内容有间距 */
-      position: static; /* 绝对定位去掉 */
+      margin-top: 10px;
+      position: static; /* 取消绝对定位，避免重叠 */
     }
 
     .cake {
@@ -118,6 +119,8 @@
       width: 80%;
       border-radius: 14px;
       margin: 15px 0;
+      max-height: 200px;
+      object-fit: cover;
     }
 
     .blessing {
@@ -132,15 +135,6 @@
     .card.open .blessing {
       opacity: 1;
     }
-
-    .hint {
-      position: absolute;
-      bottom: 10px;
-      width: 100%;
-      text-align: center;
-      font-size: 12px;
-      color: #aaa;
-    }
   </style>
 </head>
 
@@ -154,10 +148,10 @@
       <img src="swim.jpg" alt="swimming">
       <p>click to open ✨</p>
     </div>
-    
+
     <!-- 内页 -->
     <div class="side back">
-      <div class="contebt-top">
+      <div class="content-top">
         <div class="cake">🎂</div>
         <img src="luisa.jpg" class="photo" alt="memory">
         <div class="text-card">
@@ -170,7 +164,6 @@
       </div>
 
       <div class="hint">游向更广阔的世界</div>
-      
     </div>
 
   </div>
