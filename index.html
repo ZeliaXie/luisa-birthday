@@ -11,12 +11,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: "Helvetica Neue", serif;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
 
     .card {
       width: 320px;
-      height: 480px;
+      height: 500px; /* 稍微增加一点总高度 */
       perspective: 1200px;
       cursor: pointer;
     }
@@ -44,21 +44,6 @@
       background: white;
     }
 
-    .text-card {
-      margin-top: 15px;
-      padding: 14px 18px;
-      background: rgba(255, 255, 255, 0.85);
-      border-radius: 14px;
-      font-size: 16px;
-      line-height: 1.8;
-      color: #444;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-
-    .text-card p {
-      margin: 0;
-    }
-
     /* 封面 */
     .front {
       display: flex;
@@ -70,10 +55,11 @@
 
     .front img {
       width: 90%;
+      border-radius: 10px;
     }
 
     .front p {
-      margin-top: 10px;
+      margin-top: 15px;
       color: #888;
       font-size: 14px;
       letter-spacing: 1px;
@@ -82,30 +68,26 @@
     /* 内页 */
     .back {
       transform: rotateY(180deg);
-      padding: 20px;
+      padding: 25px 20px;
       box-sizing: border-box;
       text-align: center;
       background: #fffaf6;
-
       display: flex;
       flex-direction: column;
-      justify-content: space-between; /* 上下分开 */
-      height: 100%;
+      justify-content: space-between; /* 确保顶部内容和底部提示分开 */
+      align-items: center;
     }
 
     .content-top {
-      /* 上半部分内容 */
-    }
-
-    .hint {
-      font-size: 12px;
-      color: #aaa;
-      margin-top: 10px;
-      position: static; /* 取消绝对定位，避免重叠 */
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .cake {
-      font-size: 48px;
+      font-size: 40px;
+      margin-bottom: 10px;
       animation: float 2s ease-in-out infinite;
     }
 
@@ -116,40 +98,58 @@
     }
 
     .photo {
-      width: 80%;
-      border-radius: 14px;
-      margin: 15px 0;
-      max-height: 200px;
+      width: 100%;
+      max-width: 240px;
+      height: auto;
+      max-height: 160px; /* 限制图片高度，防止挤压文字 */
+      border-radius: 12px;
       object-fit: cover;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
-    .blessing {
+    .text-card {
+      width: 90%;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 14px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #444;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .text-card p {
+      margin: 0;
+    }
+
+    .hint {
+      font-size: 13px;
+      color: #aaa;
+      letter-spacing: 1px;
       margin-top: 10px;
-      font-size: 16px;
-      line-height: 1.8;
-      color: #555;
-      opacity: 0;
-      transition: opacity 1s ease;
     }
 
-    .card.open .blessing {
-      opacity: 1;
+    /* 进场动画 */
+    .card.open .content-top {
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
-
 <body>
 
 <div class="card" onclick="this.classList.toggle('open')">
   <div class="inner">
-
-    <!-- 封面 -->
     <div class="side front">
       <img src="swim.jpg" alt="swimming">
       <p>click to open ✨</p>
     </div>
 
-    <!-- 内页 -->
     <div class="side back">
       <div class="content-top">
         <div class="cake">🎂</div>
@@ -158,14 +158,13 @@
           <p>
             祝卢卢，生日快乐 🎉<br>
             新的一年<br>
-            大鹏展翅，自由自在 🌈
+            <strong>大鹏展翅，自由自在 🌈</strong>
           </p>
         </div>
       </div>
-
+      
       <div class="hint">游向更广阔的世界</div>
     </div>
-
   </div>
 </div>
 
